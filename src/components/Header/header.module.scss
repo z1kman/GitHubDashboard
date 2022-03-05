@@ -1,0 +1,10 @@
+@import '../../static/themes.scss';
+
+$this: ".Header";
+
+#{$this} {
+    width: 100%;
+    display: flex;
+    background-color: $body-color;
+    height: 80px;
+}
