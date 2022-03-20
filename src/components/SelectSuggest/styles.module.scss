@@ -1,0 +1,38 @@
+@import "../../static/variables.scss";
+
+$this: ".SelectSuggest";
+
+#{$this} {
+    &__Input {
+        transition:  background-color, $animation-duration-fast;
+        width: 100%;
+        display: flex;
+        background-color: lighten($color-bg-primary, 5%);
+        border: none;
+        height: 20px;
+        border-radius: 20px;
+        padding: 8px 20px;
+        color: $color-text-primary;
+        font-size: $font-size-l;
+        outline: none;
+
+        &::placeholder {
+            transition: color, $animation-duration-fast;
+            color: $color-text-secondary;
+            font-size: $font-size-m;
+            font-weight: 700;
+        }
+
+        &:hover {
+            background-color: lighten($color-bg-primary, 10%);
+        }
+
+        &:focus {
+            background-color: lighten($color-bg-primary, 15%);
+
+            &::placeholder {
+                color: lighten($color-text-secondary, 10%);
+            }
+        }
+    }
+}

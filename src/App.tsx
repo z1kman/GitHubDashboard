@@ -27,13 +27,13 @@ function App() {
   return (
     <div className={cn("App", `theme-${theme}`)}>
       <BrowserRouter>
-        <button type="button" onClick={() => onClick()}>
-          dsadsa
-        </button>
         <Routes>
           <Route path="/" element={<Main />} />
         </Routes>
       </BrowserRouter>
+      <button type="button" onClick={() => onClick()}>
+          dsadsa
+        </button>
     </div>
   );
 }

@@ -1,0 +1,11 @@
+@import '../../static/variables.scss';
+
+$this: ".Header";
+
+#{$this} {
+    width: 100%;
+    display: flex;
+    background-color: $color-bg-primary;
+    min-width: 80px;
+    padding: 20px 20px;
+}

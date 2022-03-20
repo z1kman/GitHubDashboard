@@ -1,6 +1,12 @@
 import React from "react";
-import styles from "./header.module.scss";
+import styles from "./styles.module.scss";
 
-export default function Header() {
-  return <div className={styles.Header}>dsa</div>;
+interface Props {
+  children: React.ReactNode;
+}
+
+
+export default function Header(props: Props) {
+  const { children } = props;
+  return <div className={styles.Header}>{children}</div>;
 }
