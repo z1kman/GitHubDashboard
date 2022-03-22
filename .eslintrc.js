@@ -20,8 +20,6 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint"],
   rules: {
-    semi: ["error", "always"],
-    quotes: ["error", "double"],
     "import/order": ["off"],
     "react/jsx-filename-extension": [
       2,

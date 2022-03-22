@@ -1,7 +1,7 @@
 import React from "react";
 
 // Styles
-import "./App.css";
+import "./App.scss";
 import "./static/themes.css";
 
 // Helpers
@@ -15,6 +15,7 @@ import { setTheme } from "./features/theme/themeSlice";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { RootState } from "./app/store";
 import Main from "./routes/Main";
+import "./helpers/i18next";
 
 function App() {
   const theme = useSelector((state: RootState) => state.theme.value);

@@ -1,38 +1,81 @@
 @import "../../static/variables.scss";
 
+$padding-horizontal: 20px;
+$padding-vertical: 8px;
+$height-input: 20px;
+$border-radius-default: 20px;
+$border-radius-on-focus: 10px;
+
 $this: ".SelectSuggest";
 
 #{$this} {
-    &__Input {
-        transition:  background-color, $animation-duration-fast;
-        width: 100%;
-        display: flex;
-        background-color: lighten($color-bg-primary, 5%);
-        border: none;
-        height: 20px;
-        border-radius: 20px;
-        padding: 8px 20px;
-        color: $color-text-primary;
-        font-size: $font-size-l;
-        outline: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
 
-        &::placeholder {
-            transition: color, $animation-duration-fast;
-            color: $color-text-secondary;
-            font-size: $font-size-m;
-            font-weight: 700;
-        }
-
-        &:hover {
-            background-color: lighten($color-bg-primary, 10%);
-        }
-
-        &:focus {
-            background-color: lighten($color-bg-primary, 15%);
-
-            &::placeholder {
-                color: lighten($color-text-secondary, 10%);
-            }
-        }
+  &:focus-within {
+    #{$this}__Options {
+      visibility: visible;
+      opacity: 1;
     }
+  }
+
+  &__Input {
+    transition: background-color, $animation-duration-fast;
+    width: 100%;
+    display: flex;
+    background-color: lighten($color-bg-primary, 5%);
+    border: none;
+    height: $height-input;
+    border-radius: $border-radius-default;
+    padding: $padding-vertical $padding-horizontal;
+    color: $color-text-primary;
+    font-size: $font-size-l;
+    outline: none;
+
+    &::placeholder {
+      transition: color, $animation-duration-fast;
+      color: $color-text-secondary;
+      font-size: $font-size-m;
+      font-weight: 700;
+    }
+
+    &:hover {
+      background-color: lighten($color-bg-primary, 10%);
+    }
+
+    &:focus {
+      background-color: lighten($color-bg-primary, 15%);
+      border-radius: 0;
+      border-top-left-radius: $border-radius-on-focus;
+      border-top-right-radius: $border-radius-on-focus;
+
+      &::placeholder {
+        color: lighten($color-text-secondary, 10%);
+      }
+    }
+  }
+
+  &__Options {
+    opacity: 0;
+    visibility: hidden;
+    top: $height-input + ($padding-vertical * 2);
+    position: absolute;
+    transition: opacity, $animation-duration-fast;
+
+    border-radius: $border-radius-on-focus;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    width: 100%;
+    background-color: lighten($color-bg-primary, 15%);
+
+    &_item {
+      color: $color-text-primary;
+      cursor: pointer;
+      padding: $padding-vertical $padding-horizontal;
+      text-align: start;
+    }
+  }
 }
