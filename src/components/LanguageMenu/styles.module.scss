@@ -1,0 +1,20 @@
+@import "../../static/variables.scss";
+
+$padding-horizontal: 20px;
+$padding-vertical: 8px;
+$height-input: 20px;
+$border-radius-default: 20px;
+$border-radius-on-focus: 10px;
+
+$this: ".LanguageMenu";
+
+#{$this} {
+  display: flex;
+  padding: $padding-vertical $padding-horizontal;
+  position: relative;
+
+  &__Icon {
+    width: 20px;
+  }
+
+}

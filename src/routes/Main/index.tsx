@@ -4,7 +4,6 @@ import styles from "./styles.module.scss";
 import Header from "../../components/Header";
 import SelectSuggest from "../../components/SelectSuggest";
 
-
 import { useTranslation } from "react-i18next";
 
 function Main() {
@@ -15,7 +14,6 @@ function Main() {
       <div className={styles.Main__SearchPanel}>
         <SelectSuggest />
       </div>
-      
     </Header>
   );
 }
