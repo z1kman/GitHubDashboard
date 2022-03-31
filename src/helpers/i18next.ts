@@ -1,24 +1,31 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
+export const LANGUAGES = [
+  { id: "en", label: "English" },
+  { id: "ru", label: "Русский" },
+];
+
 const resources = {
-    en: {
-        translation: {
-            "Welcome to React": "Welcome to React and react-i18next"
-        }
+  en: {
+    translation: {
+      common: {
+        search: "Search",
+      },
     },
-    fr: {
-        translation: {
-            "Welcome to React": "Bienvenue à React et react-i18next"
-        }
-    }
+  },
+  ru: {
+    translation: {
+      common: {
+        search: "Поиск",
+      },
+    },
+  },
 };
 
-i18n
-    .use(initReactI18next)
-    .init({
-        resources,
-        lng: "en"
-    });
+i18n.use(initReactI18next).init({
+  resources,
+  lng: "en",
+});
 
 export default i18n;

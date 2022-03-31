@@ -4,26 +4,32 @@ import GlobeIcon from "../../static/icon/globe-icon";
 import cn from "classnames";
 import OutsideClick from "../../hooks/OutsideClick";
 
-const options = [
-  { id: "ru", label: "Русский" },
-  { id: "en", label: "English" },
-];
+interface Options {
+  id: string;
+  label: string;
+}
 
-export default function LanguageMenu() {
+interface Props {
+  changeLanguage: (language: string) => void;
+  options: Array<Options>
+}
+
+export default function LanguageMenu(props: Props) {
+  const { changeLanguage, options } = props;
   const [selLanguage, setSelLanguage] = useState(options[0]);
-  const [openMenu, setOpentMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
   const changeOpenMenu = () => {
-    setOpentMenu(!openMenu);
+    setOpenMenu(!openMenu);
   };
 
   const closeMenu = () => {
-    setOpentMenu(false);
+    setOpenMenu(false);
   };
 
   const handleChangeLanguage = (index: number) => {
-    console.log("ds");
     setSelLanguage(options[index]);
+    changeLanguage(options[index].id);
     changeOpenMenu();
   };
 
@@ -32,7 +38,9 @@ export default function LanguageMenu() {
       <div className={styles.LanguageMenu}>
         <button
           type="button"
-          className={styles.LanguageMenu__Button}
+          className={cn(styles.LanguageMenu__Button, {
+            [styles.LanguageMenu__Button_open]: openMenu,
+          })}
           onClick={changeOpenMenu}
         >
           <GlobeIcon className={styles.LanguageMenu__Icon} />

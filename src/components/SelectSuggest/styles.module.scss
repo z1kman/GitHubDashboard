@@ -14,10 +14,6 @@ $this: ".SelectSuggest";
   justify-content: center;
 
   &:focus-within {
-    #{$this}__Options {
-      visibility: visible;
-      opacity: 1;
-    }
   }
 
   &__Input {
@@ -83,5 +79,12 @@ $this: ".SelectSuggest";
         background-color: lighten($color-bg-primary, 10%);
       }
     }
+
+    &_open {
+      visibility: visible;
+      opacity: 1;
+    }
   }
+
+
 }
