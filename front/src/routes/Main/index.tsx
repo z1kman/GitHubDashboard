@@ -6,7 +6,7 @@ import SelectSuggest from "../../components/SelectSuggest";
 
 function Main() {
   const reqOnServer = () => {
-    fetch('/getBeer', {
+    fetch('/search', {
       method: 'GET'
     })
     .then(res => res.json())
