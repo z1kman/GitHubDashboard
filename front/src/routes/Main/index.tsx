@@ -4,17 +4,26 @@ import styles from "./styles.module.scss";
 import Header from "../../components/Header";
 import SelectSuggest from "../../components/SelectSuggest";
 
-import { useTranslation } from "react-i18next";
-
 function Main() {
-  const { t } = useTranslation();
-  console.log(t("Welcome to React"));
+  const reqOnServer = () => {
+    fetch('/getBeer', {
+      method: 'GET'
+    })
+    .then(res => res.json())
+    .then(result => {
+      console.log(result)
+    })
+  }
+
   return (
+    <>
     <Header>
       <div className={styles.Main__SearchPanel}>
         <SelectSuggest />
       </div>
     </Header>
+    <button type="button" onClick={reqOnServer}>test</button>
+    </>
   );
 }
 
