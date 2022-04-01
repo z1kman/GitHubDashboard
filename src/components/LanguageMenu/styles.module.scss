@@ -1,0 +1,73 @@
+@import "../../static/variables.scss";
+
+$padding-horizontal: 20px;
+$padding-vertical: 6px;
+$height: 36px;
+$border-radius-default: 20px;
+$border-radius-on-focus: 10px;
+
+$this: ".LanguageMenu";
+
+#{$this} {
+  display: inline-block;
+  position: relative;
+
+  &__Button {
+    border: none;
+    padding: 0 $padding-horizontal;
+    background-color: $color-bg-primary;
+    border-radius: $border-radius-default;
+    color: $color-white;
+    height: $height;
+    transition: background-color $animation-duration-fast;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_open {
+      background-color: lighten($color-bg-primary, 5%);
+    }
+
+    &:hover {
+      background-color: lighten($color-bg-primary, 5%);
+    }
+  }
+
+  &__Menu {
+    transition: opacity $animation-duration-fast;
+    opacity: 0;
+    margin-top: 5px;
+    border-radius: $border-radius-on-focus;
+    padding: 5px 0;
+    position: absolute;
+    top: $height;
+    visibility: hidden;
+    left: 0px;
+    width: auto;
+    width: 100%;
+    background-color: lighten($color-bg-primary, 5%);
+
+    &_open {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &_item {
+      transition: color $animation-duration-fast;
+      color: $color-text-primary;
+      cursor: pointer;
+      padding: $padding-vertical $padding-horizontal;
+      text-align: start;
+
+      &:hover {
+        color:  lighten($color-text-secondary, 20%);
+      }
+    }
+  }
+
+  &__Icon {
+    width: 18px;
+    padding-right: 5px;
+  }
+}

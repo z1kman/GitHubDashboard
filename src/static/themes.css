@@ -1,0 +1,23 @@
+.theme-light {
+  --color-bg-primary: #f7f7f7;
+  --color-bg-secondary: #2f3440;
+}
+
+.theme-dark {
+  --color-bg-primary: rgb(29, 29, 29);
+  --color-bg-secondary: #2f3440;
+}
+
+/* 
+@media (prefers-color-scheme: dark) {
+  body.theme-auto {
+    --background-color: #111;
+    --text-color: #f3f3f3;
+  }
+}
+@media (prefers-color-scheme: light) {
+  body.theme-auto {
+    --background-color: #f3f3f3;
+    --text-color: #111;
+  }
+} */

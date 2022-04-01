@@ -1,0 +1,21 @@
+@import '../../static/variables.scss';
+
+$this: ".Header";
+
+#{$this} {
+    width: calc(100% - 40px);
+    display: flex;
+    background-color: $color-bg-primary;
+    min-width: 80px;
+    padding: 20px 20px;
+
+    &__Children {
+        width: calc(50% - 20px);
+    }
+
+    &__Services {
+        width: calc(50% - 20px);
+        display: flex;
+        justify-content: flex-end;
+    }
+}
