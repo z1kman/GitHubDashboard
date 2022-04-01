@@ -11,33 +11,35 @@ export default function SelectSuggest() {
   const [value, setValue] = useState("");
   const { t } = useTranslation();
 
-  const changeOpenMenu = () => {
-    setOpenMenu(!openMenu);
-  };
-
-  const closeMenu = () => {
+  const handleCloseMenu = () => {
     setOpenMenu(false);
   };
+
+  const handleOpenMenu = () => {
+    setOpenMenu(true);
+  }
 
   const onChange = (currentValue: string) => {
     setValue(currentValue);
   };
 
   const handleClickOnOption = (item: string) => {
-    closeMenu();
+    handleCloseMenu();
     onChange(item);
   };
 
 
 
   return (
-    <OutsideClick callback={closeMenu}>
+    <OutsideClick callback={handleCloseMenu}>
       <div className={styles.SelectSuggest}>
         <input
           placeholder={t("common.search")}
           type="text"
-          onFocus={changeOpenMenu}
-          className={styles.SelectSuggest__Input}
+          onFocus={handleOpenMenu}
+          className={cn(styles.SelectSuggest__Input, {
+            [styles.SelectSuggest__Input_active] : openMenu 
+          })}
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
